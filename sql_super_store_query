@@ -1,0 +1,20 @@
+select * from superstore_usa;
+
+alter table superstore_usa rename column `ï»¿Order ID` to `orderId`;
+
+create table  ss as
+SELECT  
+    orderId,
+    `Customer Segment`,
+    `Product Category`,
+    `Product Sub-Category`,
+    `State or Province`,
+    Region,
+    City,
+    `Order Date`,
+    `Unit Price`,
+    Discount,
+    `Quantity ordered new`,
+    Sales
+FROM
+    superstore_usa;
