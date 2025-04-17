@@ -1,20 +1,18 @@
-select * from superstore_usa;
-
-alter table superstore_usa rename column `ï»¿Order ID` to `orderId`;
-
-create table  ss as
-SELECT  
-    orderId,
-    `Customer Segment`,
-    `Product Category`,
-    `Product Sub-Category`,
-    `State or Province`,
-    Region,
-    City,
-    `Order Date`,
-    `Unit Price`,
-    Discount,
-    `Quantity ordered new`,
-    Sales
-FROM
-    superstore_usa;
+create schema super_usa;
+use super_usa;
+CREATE TABLE superstore_usa (
+    Order_ID INT,
+    Customer_ID INT,
+    Customer_Segment VARCHAR(50),
+    Order_Priority VARCHAR(20),
+    Product_Category VARCHAR(50),
+    Product_Sub_Category VARCHAR(50),
+    State_or_Province VARCHAR(100),
+    Region VARCHAR(50),
+    City VARCHAR(100),
+    Order_Date DATE,
+    Unit_Price DECIMAL(10, 2),
+    Quantity_ordered_new INT,
+    Profit DECIMAL(12, 5),
+    Sales DECIMAL(12, 2)
+);
