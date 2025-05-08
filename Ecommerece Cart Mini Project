@@ -1,0 +1,66 @@
+cart = []
+
+def add_product():
+    name = input("PRODLUCT NAME:     ")
+    quantity = int(input("QUANTITY:          "))
+    price = float(input("PRICE:      "))
+    cart.append([name, quantity, price])
+    print("product added sucessfully.............")
+
+
+def remove_product():
+    product_removal_name = input("Enter product name to Remove: ")
+    for name , price , quantity in cart:
+        if product_removal_name == name:
+            cart.remove([name , price, quantity])
+            print("ELement removed sucessfully....")
+            break
+
+    else:
+        print("element not found")
+
+def check_products_in_cart():
+    print(f"{"Product":20}{"Price":<10}{"Qauntity"}")
+    print("-" * 40)
+    for name , price, quantity in cart:
+        print(f"{name:20}{price:<10}{quantity}")
+
+def go_for_billing():
+    bill = 0
+    for name , price, quantity in cart:
+        bill = bill + price * quantity
+
+    print("Total bill = ", bill)
+
+    
+
+print("----------------------------ECOMMERCE APP---------------------------------")
+app_is_on = True
+while app_is_on:
+    choice = input("""
+                    1: Add Product
+                    2: Remove Product
+                    3: Check Products in Cart
+                    4: Billing
+                    5: Exit
+            """)
+    
+    
+    if choice == "1":
+        add_product()
+    
+    elif choice == "2":
+        remove_product()
+    
+    elif choice == "3":
+        check_products_in_cart()
+    
+    elif choice == "4":
+        go_for_billing()
+        break
+    
+    elif choice == "5":
+        break
+    
+    else:
+        print("Invalid Choice")
